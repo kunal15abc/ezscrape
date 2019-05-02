@@ -1,0 +1,14 @@
+Package: ezscrape
+Title: Web scraping solutions
+Version: 0.0.0.9000
+Authors@R: person("Kunal", "Bhattacharya", email = "kunal15abc@gmail.com", role = c("aut", "cre"))
+Description: This packege provides functions for scraping data from websites. The aim is to make scraping data from web easy for analysts.
+Depends: R (>= 3.6.0)
+License: None
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    rvest,
+    dplyr,
+    stringr
