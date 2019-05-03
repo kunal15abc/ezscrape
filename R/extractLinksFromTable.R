@@ -5,10 +5,10 @@
 #' @param tableID id attribute of the table
 #' @export
 #' @examples
-#' extractLinksFromTable()
+#' extractLinksFromTable("https://www.drugshortagescanada.ca","drug-shortage-reports")
 
 extractLinksFromTable <- function(url,tableID) {
-  html <- read_html(url)
+  html <- xml2::read_html(url)
   
   cssSelectorLinks <- paste("#",tableID," tbody tr td a", sep = "")
   tableLinks <- getElementAttr(html, cssSelectorLinks, "href")

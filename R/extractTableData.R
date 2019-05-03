@@ -5,10 +5,10 @@
 #' @param tableID id attribute of the table
 #' @export
 #' @examples
-#' extractTableData()
+#' extractTableData("https://www.drugshortagescanada.ca","drug-shortage-reports")
 
 extractTableData <- function(url,tableID){
-  html <- read_html(url)
+  html <- xml2::read_html(url)
   
   cssSelectorHead <- paste("#",tableID," thead tr th", sep = "")
   cssSelectorBody <- paste("#",tableID," tbody tr td", sep = "")

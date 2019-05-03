@@ -15,5 +15,5 @@ extractLinksFromTable(url, tableID)
 This function allows you to extract all the links from table.
 }
 \examples{
-extractLinksFromTable()
+extractLinksFromTable("https://www.drugshortagescanada.ca","drug-shortage-reports")
 }

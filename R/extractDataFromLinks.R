@@ -5,12 +5,14 @@
 #' @param links a vector containing links
 #' @export
 #' @examples
-#' extractDataFromLinks()
+#' links <- extractLinksFromTable("https://www.drugshortagescanada.ca","drug-shortage-reports")
+#' extractDataFromLinks("https://www.drugshortagescanada.ca",links[,3])
+
 
 extractDataFromLinks <- function(url,links) {
   newUrl <- paste(url,links[1],sep="")
-  newUrl
-  html <- read_html(newUrl)
+  
+  html <- xml2::read_html(newUrl)
   
   reportTable <- getReportTable(html,1)
   
@@ -19,12 +21,12 @@ extractDataFromLinks <- function(url,links) {
   
   for (n in 1:length(links)) {
     tempurl <- paste(url,links[n],sep = "")
-    html <- read_html(tempurl)
+    html <- xml2::read_html(tempurl)
     temptable <- getReportTable(html,1)
     tempDF <- data.frame(matrix(ncol = length(temptable[,1])))
     colnames(tempDF) <- temptable[,1]
     tempDF[1,] <- temptable[,2]
-    reportDF <- bind_rows(reportDF,tempDF)
+    reportDF <- dplyr::bind_rows(reportDF,tempDF)
   }
   reportDF <- reportDF[-1,]
   return(reportDF)

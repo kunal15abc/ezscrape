@@ -15,5 +15,6 @@ getReportTable(html, n)
 This function gives to table in R based on position of table on the page.
 }
 \examples{
-getReportTable()
+html <- xml2::read_html("https://www.drugshortagescanada.ca")
+getReportTable(html,1)
 }

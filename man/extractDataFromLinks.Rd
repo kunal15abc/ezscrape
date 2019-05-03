@@ -15,5 +15,6 @@ extractDataFromLinks(url, links)
 This function allows you to extract data from series of links.
 }
 \examples{
-extractDataFromLinks()
+links <- extractLinksFromTable("https://www.drugshortagescanada.ca","drug-shortage-reports")
+extractDataFromLinks("https://www.drugshortagescanada.ca",links[,3])
 }

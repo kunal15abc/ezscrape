@@ -15,5 +15,6 @@ getElementText(html, cssSelector)
 This function allows you to extract text from an element and returns vector
 }
 \examples{
-getElementText()
+html <- xml2::read_html("https://www.drugshortagescanada.ca")
+getElementText(html,"table tbody tr td")
 }

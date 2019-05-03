@@ -4,14 +4,16 @@
 #' @param html html code of the page
 #' @param cssSelector css selector of the element
 #' @param Attr attribute name whose value to be fetched
+#' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' getElementAttr()
+#' html <- xml2::read_html("https://www.drugshortagescanada.ca")
+#' getElementAttr(html,"table tbody tr td","href")
 
 getElementAttr <- function(html,cssSelector,Attr){
   html %>%
-    html_nodes(cssSelector) %>%   
-    html_attr(Attr) %>%
-    str_trim() %>%
+    rvest::html_nodes(cssSelector) %>%   
+    rvest::html_attr(Attr) %>%
+    stringr::str_trim() %>%
     unlist()
 }

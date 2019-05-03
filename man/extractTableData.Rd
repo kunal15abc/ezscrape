@@ -15,5 +15,5 @@ extractTableData(url, tableID)
 This function allows you to extract all the data from table and returns dataframe
 }
 \examples{
-extractTableData()
+extractTableData("https://www.drugshortagescanada.ca","drug-shortage-reports")
 }

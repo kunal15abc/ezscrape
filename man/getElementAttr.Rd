@@ -17,5 +17,6 @@ getElementAttr(html, cssSelector, Attr)
 This function allows you to extract attribute value from the element and returns vector.
 }
 \examples{
-getElementAttr()
+html <- xml2::read_html("https://www.drugshortagescanada.ca")
+getElementAttr(html,"table tbody tr td","href")
 }
